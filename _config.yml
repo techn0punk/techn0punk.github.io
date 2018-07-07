@@ -26,7 +26,7 @@ github_username:  techn0punk
 
 # Build settings
 markdown: kramdown
-theme: hacker
+theme: time-machiene
 plugins:
   - jekyll-feed
 
