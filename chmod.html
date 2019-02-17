@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>¯\_(ツ)_/¯</title>
+        <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css" />
+		<link rel="stylesheet" href="css/oneColLiqCtr.css" type="text/css" />
+	</head>
+	<body>
+    	<div id="top"></div>
+		<div id="container">
+        	<div id="content">
+				<script language="JavaScript">
+					<!--
+					  function calc_chmod(user) {
+						  var allow_read  = user + "4";
+						  var allow_write = user + "2";
+						  var allow_exec  = user + "1";
+				
+						  var chmodnumber = 0;
+						  var dirstring = "";
+						  var dirtxt = "dirtxt"+user;
+				
+						  if (document.chmod_calculator[allow_read].checked  == true) { chmodnumber += 4; }
+						  if (document.chmod_calculator[allow_write].checked == true) { chmodnumber += 2; }
+						  if (document.chmod_calculator[allow_exec].checked  == true) { chmodnumber += 1; }
+				
+						  if (document.chmod_calculator[allow_read].checked == true)  { dirstring += "r"; } else { dirstring += "-"; }
+						  if (document.chmod_calculator[allow_write].checked == true) { dirstring += "w"; } else { dirstring += "-"; }
+						  if (document.chmod_calculator[allow_exec].checked == true)  { dirstring += "x"; } else { dirstring += "-"; }
+				
+						  document.getElementById(user).innerHTML = chmodnumber;
+				
+						  if (dirstring == "") { dirstring = "---"; }
+						  document.chmod_calculator[dirtxt].value = dirstring;
+				
+						  document.getElementById("lsoutput").innerHTML = document.chmod_calculator.dirtxtowner.value + " " + 
+																		  document.chmod_calculator.dirtxtgroup.value + " " + 
+																		  document.chmod_calculator.dirtxtother.value;
+						  document.getElementById("chmodval").innerHTML = document.getElementById("owner").innerHTML + 
+																		  document.getElementById("group").innerHTML + 
+																		  document.getElementById("other").innerHTML;
+					  }
+					//-->
+				</script>
+				<style>
+					table#chmodtable {
+						border: 1px solid #808080;
+						border-radius: 5px;
+						padding: 8px;
+						background-color: #efece8;
+						margin-left:auto; 
+						margin-right:auto;
+						box-shadow: 2px 2px 10px #999;
+					}
+					.centerthis { text-align: center; }
+					.addpaddingtop { padding-top: 20px; }
+					.columwidth {width: 60px; padding-bottom: 10px;}
+					.resultfont {color: #f00; font-weight: bold;}
+					.lsoutputtxt { 
+						font-family: monospace;
+						font-size: larger;
+						color: #fff;
+						white-space: nowrap;
+						background-color: #000;
+						padding: 2px 10px 4px 10px;
+						border-radius: 6px; 
+					}
+				</style>  
+				<form name="chmod_calculator">
+					<table id="chmodtable">
+						<tbody>
+						  <tr>
+							<th style="text-align: left;padding-bottom: 10px;">Permissions</th>
+							<th class="centerthis columwidth">Owner</th>
+							<th class="centerthis columwidth">Group</th>
+							<th class="centerthis columwidth">Other</th>
+						  </tr>
+				
+						<tr>
+							<td>READ</td>
+							<td class="centerthis"><input type="checkbox" name="owner4" value="4" onclick="calc_chmod('owner')"></td>
+							<td class="centerthis"><input type="checkbox" name="group4" value="4" onclick="calc_chmod('group')"></td>
+							<td class="centerthis"><input type="checkbox" name="other4" value="4" onclick="calc_chmod('other')"></td>
+						  </tr>
+						  <tr>
+							<td>WRITE</td>
+							<td class="centerthis"><input type="checkbox" name="owner2" value="2" onclick="calc_chmod('owner')"></td>
+							<td class="centerthis"><input type="checkbox" name="group2" value="2" onclick="calc_chmod('group')"></td>
+							<td class="centerthis"><input type="checkbox" name="other2" value="2" onclick="calc_chmod('other')"></td>
+						  </tr>
+						  <tr>
+							<td>EXECUTE</td>
+							<td class="centerthis"><input type="checkbox" name="owner1" value="1" onclick="calc_chmod('owner')"></td>
+							<td class="centerthis"><input type="checkbox" name="group1" value="1" onclick="calc_chmod('group')"></td>
+							<td class="centerthis"><input type="checkbox" name="other1" value="1" onclick="calc_chmod('other')"></td>
+						  </tr>
+						  <tr>
+							<td class="addpaddingtop">Value for chmod</td>
+							<td id="owner" class="centerthis addpaddingtop resultfont">0</td>
+							<td id="group" class="centerthis addpaddingtop resultfont">0</td>
+							<td id="other" class="centerthis addpaddingtop resultfont">0</td>
+						  </tr>
+						  <tr style="visibility: hidden">
+							<td></td>
+							<td><input type="text" name="dirtxtowner" value="---" size="1"></td>
+							<td><input type="text" name="dirtxtgroup" value="---" size="1"></td>
+							<td><input type="text" name="dirtxtother" value="---" size="1"></td>
+						  </tr>
+						  <tr>
+							<td>chmod vs ls output</td>
+							<td id="chmodval" class="centerthis" style="font-weight: bold;"></td>
+							<td colspan="2" id="lsoutput" class="lsoutputtxt">--- --- ---</td>
+						  </tr>
+						</tbody>
+					  </table>
+				</form>
+			</div>
+		  </div>
+	</body>
+</html>
