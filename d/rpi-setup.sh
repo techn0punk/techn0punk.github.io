@@ -35,13 +35,13 @@ EOF
 
 # generate locales
 sudo locale-gen
-sudo dpkg-reconfigure locales
+sudo update-locale
 
 # setting timezone
 echo -e $RED '  ! setting Timezone to ' $GRE "$TZ" $NC
-rm -f /etc/localtime
+sudo rm -f /etc/localtime
 TZFILE=/usr/share/zoneinfo/$TZ
-ln -s $TZFILE /etc/localtime
+sudo ln -s $TZFILE /etc/localtime
 
 
 ## setting up ssh
@@ -119,4 +119,5 @@ cd $HOME
 rm -rvf /tmp/tmcl
 
 ## finish
+neofetch
 echo -e "\n  ende \n$RED  ende \n$YEL  ende\n$GRE  ende$NC"
