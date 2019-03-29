@@ -98,6 +98,11 @@ echo -e $YEL "  + getting rc-file: " $GRE '~/.vimrc' $NC
 if [[ -w "$HOME/.vimrc" ]]; then mv $HOME/.vimrc $HOME/.vimrc.bak; fi
 wget https://techn0punk.github.io/d/vimrc -O $HOME/.vimrc
 
+# if exists, remove ~/.config/neofetch/config.conf and replace with custom one
+echo -e $YEL "  + getting rc-file: " $GRE '~/.config/neofetch/config.conf' $NC
+if [[ -d "$HOME/.config/neofetch" ]]; then rm -rf $HOME/.config/neofetch; mkdir -p $HOME/.config/neofetch; fi
+wget https://techn0punk.github.io/d/neofetch.conf -O $HOME/.config/neofetch/config.conf
+
 # if exists, backup ~/.tmux.conf and replace with custom one
 echo -e $YEL "  + getting rc-file: " $GRE '~/.tmux.conf' $NC
 if [[ -w "$HOME/.tmux.conf"]]; then mv $HOME/.tmux.conf $HOME/.tmux.conf.bak; fi
