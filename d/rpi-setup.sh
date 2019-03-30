@@ -122,6 +122,7 @@ rm -rvf /tmp/tmcl
 
 if [[ "$1" = "docker" ]]; then
     curl -sSL https://get.docker.com | sh
+    sudo usermod -aG docker pi
 fi
 
 ## finish
