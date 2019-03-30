@@ -107,7 +107,7 @@ wget https://techn0punk.github.io/d/neofetch.conf -O $HOME/.config/neofetch/conf
 
 # if exists, backup ~/.tmux.conf and replace with custom one
 echo -e $YEL "  + getting rc-file: " $GRE '~/.tmux.conf' $NC
-if [[ -w "$HOME/.tmux.conf"]]; then mv $HOME/.tmux.conf $HOME/.tmux.conf.bak; fi
+if [[ -w "$HOME/.tmux.conf" ]]; then mv $HOME/.tmux.conf $HOME/.tmux.conf.bak; fi
 wget https://techn0punk.github.io/d/tmux.conf -O $HOME/.tmux.conf
 
 # compile + install tmux-mem-cpu-load
