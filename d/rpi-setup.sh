@@ -63,7 +63,7 @@ echo -e $RED "  * performing update" $NC
 sudo apt update
 echo -e $RED "  * performing full-upgrade" $NC
 sudo apt full-upgrade -y
-echo -e $RED "  * performing " $YEL "another " $RED "update" $NC
+echo -e $RED "  * performing " $YEL "another " $RED "update" $NC "(for the case kernel-version has changed)"
 sudo apt update
 echo -e $RED "  * installing additional packages:" $GRE "\n    ${INSTALL[*]}" $NC
 sudo apt install -y ${INSTALL[*]}
@@ -119,6 +119,10 @@ make
 sudo make install
 cd $HOME
 rm -rvf /tmp/tmcl
+
+if [[ "$1" = "docker" ]]; then
+    curl -sSL https://get.docker.com | sh
+fi
 
 ## finish
 neofetch
