@@ -121,8 +121,10 @@ cd $HOME
 rm -rvf /tmp/tmcl
 
 if [[ "$1" = "docker" ]]; then
+    echo -e $RED "  + installing " $GRE 'docker' $NC
     curl -sSL https://get.docker.com | sh
-    sudo usermod -aG docker pi
+    echo -e $RED "  ! adding user " $GRE $USER $RED " to group " $GRE 'docker' $NC
+    sudo usermod -aG docker $USER
 fi
 
 ## finish
