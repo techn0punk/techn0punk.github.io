@@ -63,7 +63,9 @@ echo -e $RED "  * performing update" $NC
 sudo apt update
 echo -e $RED "  * performing full-upgrade" $NC
 sudo apt full-upgrade -y
-echo -e $RED "  * installing additional packages:" $GRE "\n ${INSTALL[*]}" $NC
+echo -e $RED "  * performing " $YEL "another " $RED "update" $NC
+sudo apt update
+echo -e $RED "  * installing additional packages:" $GRE "\n    ${INSTALL[*]}" $NC
 sudo apt install -y ${INSTALL[*]}
 
 ## CONFIGURING 
